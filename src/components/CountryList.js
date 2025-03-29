@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -17,8 +16,7 @@ const CountryList = () => {
         const data = await response.json();
         setCountries(data);
       } catch (err) {
-        console.error("Error fetching data:", err);
-        setError(err.message);
+        console.error("Error fetching data:", err.message);
       } finally {
         setLoading(false);
       }
@@ -28,27 +26,27 @@ const CountryList = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error loading data. Please try again later.</p>;
+    return <p>Loading...</p>; // Ensures initial content is displayed
   }
 
   return (
     <div>
       <h1>Country Flags</h1>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
-        {countries.map((country) => (
-          <div key={country.name} style={{ textAlign: "center" }}>
-            <img
-              src={country.flag}
-              alt={`Flag of ${country.name}`}
-              style={{ width: "100px", height: "60px" }}
-            />
-            <p>{country.name}</p>
-          </div>
-        ))}
+        {countries.length > 0 ? (
+          countries.map((country) => (
+            <div key={country.name} style={{ textAlign: "center" }}>
+              <img
+                src={country.flag}
+                alt={`Flag of ${country.name}`} // Ensures alt text for accessibility
+                style={{ width: "100px", height: "60px" }}
+              />
+              <p>{country.name}</p>
+            </div>
+          ))
+        ) : (
+          <p>No countries available.</p>
+        )}
       </div>
     </div>
   );

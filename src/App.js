@@ -1,15 +1,13 @@
-import React from 'react';
-import './App.css';
-import './index.css';
-import CountryList from './components/CountryList';
+import React from "react";
+import CountryList from "./components/CountryList";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Country Flags</h1>
+    <div>
       <CountryList />
     </div>
   );
 }
 
 export default App;
+// This is a simple React application that fetches and displays country flags.
