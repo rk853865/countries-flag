@@ -1,0 +1,29 @@
+.country-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .country-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .country-card img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .country-card p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
